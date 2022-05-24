@@ -1,0 +1,852 @@
+@import 'http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 1.5;
+  margin: 0px;
+}
+
+.section__titulo {
+  text-align: center;
+  font-size: 40px;
+  color: rgb(9, 71, 146);
+}
+
+.contenedor {
+  margin: auto;
+  width: 99%;
+}
+
+/*------------------Estilos del header*------------------*/
+.header {
+  height: 65px;
+  background: rgb(22, 22, 22);
+}
+
+.header .contenedor {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo,
+.icon-menu {
+  margin: 5px;
+  color: #fff;
+}
+
+.icon-menu {
+  display: block;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  background: linear-gradient(328deg, rgb(6, 26, 97) 0%, rgb(9, 71, 146) 100%);
+  text-align: center;
+  line-height: 45px;
+  border-radius: 5px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+/*-------------------Estilos del menu-------------------*/
+.nav {
+  position: absolute;
+  top: 60px;
+  left: -100%;
+  width: 100%;
+  transition: all 0.4s;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu__link {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu__link:hover,
+.select {
+  background: white;
+  color: rgb(9, 71, 146);
+  text-decoration: none;
+
+}
+
+
+.mostrar {
+  left: 0;
+}
+
+
+/*--------------Estilos de banner--------------*/
+
+.banner {
+  margin-top: -60px;
+  position: relative;
+  z-index: -1000;
+  margin-bottom: 30px;
+
+}
+
+.banner .contenedor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+
+
+.banner__img {
+  background: rgba(0, 0, 0, 0.9);
+  width: 100%;
+}
+
+
+/*-----------------Estilos de info-----------------*/
+
+.info__columna {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 30px;
+  font-family: 'Open Sans';
+  margin: 5px 0;
+}
+
+/*----------------Estilos de cursos----------------*/
+
+.cursos__columna {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.cursos__descripcion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  width: 50%;
+  height: 97%;
+  padding: 5px;
+
+}
+
+.cursos__titulo {
+  font-size: 25px;
+  margin: 5px 0;
+}
+
+.cursos__img {
+  width: 100%;
+}
+
+/*----------------Estilos de footer----------------*/
+.footer {
+  background: #333;
+  color: rgb(32, 32, 32);
+  padding: 10px;
+  text-align: center;
+}
+
+.footer .social [class^="icon"] {
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+  font-size: 30px;
+  padding: 10px;
+  background: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 40px;
+}
+
+/*---------------Estilos responsive---------------*/
+@media(min-width:480px) {
+  .logo {
+    font-size: 35px;
+    display: flex;
+  }
+
+  .banner__titulo {
+    font-size: 50px;
+    margin: 5px 10px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    display: block;
+
+
+  }
+
+  .banner__txt {
+    display: block;
+    font-size: 18px;
+    margin: 7px 0;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .info,
+  .cursos {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -90px;
+  }
+
+  .info__columna {
+    width: 32%;
+  }
+
+  .info__titulo {
+    font-size: 30px;
+    margin: 5px 0;
+  }
+
+  .section__titulo {
+    width: 100%;
+  }
+
+  .cursos {
+    flex-wrap: wrap;
+    margin-top: 0;
+  }
+
+  .cursos__columna {
+    width: 49%
+  }
+
+  .footer .social [class^="icon"] {
+    margin: 0 10px;
+  }
+
+}
+
+@media(min-width:480px) {
+  .banner__titulo {
+    font-size: 50px;
+    display: block;
+    margin: 7px 0;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+
+  }
+
+  .cursos__titulo {
+    font-size: 40px;
+  }
+}
+
+@media(min-width:1024px) {
+  .contenedor {
+    width: 1000px;
+  }
+
+  .section__titulo {
+    font-size: 50px;
+    margin: 30px 0;
+  }
+
+  .nav {
+    position: static;
+    width: auto;
+  }
+
+  .menu {
+    display: flex;
+  }
+
+  .icon-menu {
+    display: none;
+  }
+
+  .menu__link {
+    background: none;
+    font-size: 20px;
+  }
+
+  .select {
+    color: #fff;
+    background: rgb(9, 71, 146) 100%;
+  }
+
+  .banner__titulo {
+    font-size: 60px;
+  }
+
+  .banner__txt {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .info {
+    margin-top: -120px;
+  }
+
+  .info__columna {
+    padding: 30px;
+  }
+
+  .info__titulo {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .cursos__descripcion {
+    padding: 20px;
+
+  }
+
+  .cursos__titulo {
+    font-size: 50px;
+  }
+
+  .cursos__txt {
+    font-size: 20px;
+  }
+}
+
+@media(min-width:1280px) {
+  .contenedor {
+    width: 1200px;
+  }
+
+  .banner__titulo {
+    font-size: 50px;
+    display: block;
+    margin: 7px 0;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+
+  }
+
+  .banner .contenedor {
+    top: 40%;
+
+  }
+
+  .info {
+    margin-top: -180px;
+  }
+
+
+  /*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+  body,
+  html {
+    height: 100%;
+    font-family: Oswald, sans-serif;
+  }
+
+  /*---------------------------------------------*/
+  a {
+    font-family: Oswald;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+  }
+
+  a:focus {
+    outline: none !important;
+  }
+
+
+  /*---------------------------------------------*/
+
+  p {
+    font-family: Oswald;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+
+  }
+
+  ul,
+  li {
+    margin: 0px;
+    list-style-type: none;
+  }
+
+
+  /*---------------------------------------------*/
+  input {
+    outline: none;
+    border: none;
+    width: 100%;
+   
+  }
+  .inputinfo {
+  pointer-events: none;
+  }
+
+
+
+  textarea {
+    outline: none;
+    border: none;
+  }
+
+  textarea:focus,
+  input:focus {
+    border-color: transparent !important;
+  }
+
+  input:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  input:focus:-moz-placeholder {
+    color: transparent;
+  }
+
+  input:focus::-moz-placeholder {
+    color: transparent;
+  }
+
+  input:focus:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  textarea:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  textarea:focus:-moz-placeholder {
+    color: transparent;
+  }
+
+  textarea:focus::-moz-placeholder {
+    color: transparent;
+  }
+
+  textarea:focus:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  input::-webkit-input-placeholder {
+    color: #adadad;
+  }
+
+  input:-moz-placeholder {
+    color: #adadad;
+  }
+
+  input::-moz-placeholder {
+    color: #adadad;
+  }
+
+  input:-ms-input-placeholder {
+    color: #adadad;
+  }
+
+  textarea::-webkit-input-placeholder {
+    color: #adadad;
+  }
+
+  textarea:-moz-placeholder {
+    color: #adadad;
+  }
+
+  textarea::-moz-placeholder {
+    color: #adadad;
+  }
+
+  textarea:-ms-input-placeholder {
+    color: #adadad;
+  }
+
+  /*---------------------------------------------*/
+  button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  iframe {
+    border: none !important;
+  }
+
+
+  /*//////////////////////////////////////////////////////////////////
+[ Utility ]*/
+  .txt1 {
+    font-family: Oswald;
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.5;
+  }
+
+  .txt2 {
+    font-family: Oswald;
+    font-size: 13px;
+    color: #333333;
+    line-height: 1.5;
+  }
+
+  /*//////////////////////////////////////////////////////////////////
+[ login ]*/
+
+  .limiter {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .container-login100 {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    align-items: center;
+    padding-top: 0px;
+    padding-right: 100px;
+    padding-bottom: 100px;
+    padding-left: 100px;
+    background-image: url("https://drive.google.com/uc?export=view&id=1nC9UItNoplLqCoOW2oyfzyPOp1jFzXcq");
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .wrap-login100 {
+    width: 390px;
+    background: rgba(8, 6, 6, 0.749);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 77px 55px 33px 55px;
+    margin: 50px;
+
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+
+
+
+
+  .container-login1004 {
+    width: 100%;
+    min-height: 80vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    align-items: left;
+    padding: 0px;
+    background-color: #e8e8e8;
+    align-content: space-around;
+
+
+   
+
+  }
+
+  .wrap-login1004 {
+    align-items: center;
+    width: 400px;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 30px 15px 20px 35px;
+    margin: 5px;
+
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .wrap-login1002 {
+    width: 700px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 25px 20px 10px 30px;
+    margin: 0px;
+
+  }
+
+  .wrap-login1003 {
+    width: 700px;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 25px 20px 10px 30px;
+    margin: 10px;
+
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  /*------------------------------------------------------------------
+[ Form ]*/
+
+  .login100-form {
+    width: 100%;
+  }
+
+  .login100-form-title {
+    display: block;
+    font-family: Open Sans;
+    font-size: 40px;
+    color: #ffffff;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .login100-form-title i {
+    font-size: 60px;
+  }
+
+  /*------------------------------------------------------------------
+[ Input ]*/
+
+  .wrap-input100 {
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin-bottom: 37px;
+    align-items: center;
+  }
+
+  .input100 {
+    font-family: Oswald;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.2;
+
+    display: block;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    padding: 0 5px;
+  }
+
+  /*---------------------------------------------*/
+  .focus-input100 {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  .focus-input100::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+
+    background: #6a7dfe;
+  }
+
+  .focus-input100::after {
+    font-family: Oswald;
+    font-size: 15px;
+    color: #999999;
+    line-height: 1.2;
+
+    content: attr(data-placeholder);
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 16px;
+    left: 0px;
+    padding-left: 5px;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+
+  .input100:focus+.focus-input100::after {
+    top: -15px;
+  }
+
+  .input100:focus+.focus-input100::before {
+    width: 100%;
+  }
+
+  .has-val.input100+.focus-input100::after {
+    top: -15px;
+  }
+
+  .has-val.input100+.focus-input100::before {
+    width: 100%;
+  }
+
+  /*---------------------------------------------*/
+  .btn-show-pass {
+    font-size: 15px;
+    color: #999999;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    padding-right: 5px;
+    cursor: pointer;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+
+
+
+  /*------------------------------------------------------------------
+[ Button ]*/
+
+
+  .wrap-login100-form-btn {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 10px;
+  }
+
+  .login100-form-bgbtn {
+    position: absolute;
+    z-index: -1;
+    width: 300%;
+    height: 100%;
+
+    background: linear-gradient(328deg, rgb(6, 26, 97) 0%, rgb(9, 71, 146) 100%);
+
+    top: 0;
+    left: -100%;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+
+
+  .login100-form-btn {
+    font-family: Oswald;
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+  }
+
+  .wrap-login100-form-btn:hover .login100-form-bgbtn {
+    left: 0;
+  }
+
+
+  html {
+    font-size: 16px;
+  }
+
+  .slider {
+    font-family: Oswald;
+
+  }
+
+  .display-4 {
+    font-size: 110px;
+  }
+
+  .navbar {
+    font-size: 25px;
+    font-family: Lobster;
+    color: #fff;
+    text-decoration: none;
+  }
+
+
+  .text__info {
+    margin: 10px;
+    font-family: 'Oswald';
+  }
+}

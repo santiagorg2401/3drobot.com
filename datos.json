@@ -1,0 +1,16 @@
+{
+  "datos": [
+    {
+      "id": 3,
+      "temperatura": 30.5,
+      "humedad": 45.5,
+      "horafecha": "21"
+    },
+    {
+      "id": 4,
+      "temperatura": 30.5,
+      "humedad": 45.5,
+      "horafecha": "21"
+    }
+  ]
+}
