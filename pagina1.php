@@ -42,7 +42,7 @@
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
             <script>
                 const video = document.getElementById('video');
-                const videoSrc = 'http://localhost:8080/livestream/stream.m3u8';
+                const videoSrc = 'http://20.40.65.188:8080/livestream/stream.m3u8';
 
                 if (Hls.isSupported()) {
                     const hls = new Hls();
@@ -72,22 +72,77 @@
                 </form>
                 Info: <input class="inputinfo" type="text" name="info" value="<?php echo $info; ?>">
 
-                <h1>Datos</h1>
-                <table>
-                    <tr>
-                        <th>ID NODO</th>
-                        <th>TEMPERATURA</th>
-                        <th>FECHA</th>
-                    </tr>
-                    
-                </table>
+
+
+
+
+
+
+                <tbody>
+
+                    <?php
+                    $url_rest = "http://20.40.65.188:3000/datos";
+
+                    $curl = curl_init($url_rest);
+                    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                    $respuesta = curl_exec($curl);
+                    if ($respuesta === false) {
+                        curl_close($curl);
+                        die("Error...");
+                    }
+                    curl_close($curl);
+                    //echo $respuesta;
+                    $resp = json_decode($respuesta);
+                    $tam = count($resp);
+
+                    $dataPoints = array();
+
+                    for ($i = 0; $i < $tam; $i++) {
+                        $j = $resp[$i];
+                        $robot_id = $j->robot_id;
+                        $temperature = $j->temperature;
+                        $weight = $j->weight;
+                        $timedate = $j->timedate;
+                        $powerState = $j->powerState;
+
+                        array_push($dataPoints, array("x" => $i, "y" => $temperature));
+                        $info = $weight;
+                        $info2 = $powerState;
+                    }
+                    ?>
+                    Filament Weight in Kg: <input class="inputinfo" type="text" name="info" value="<?php echo $info; ?>">
+                    Power state: <input class="inputinfo" type="text" name="info" value="<?php echo $info2; ?>">
+
+
+                    <script>
+                        window.onload = function() {
+
+                            var chart = new CanvasJS.Chart("chartContainer", {
+                                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                                animationEnabled: true,
+                                zoomEnabled: true,
+                                title: {
+                                    text: "Temperature over time in °C."
+                                },
+                                data: [{
+                                    type: "area",
+                                    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                                }]
+                            });
+                            chart.render();
+
+                        }
+                    </script>
+                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+
+                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                </tbody>
+
 
             </div>
 
         </div>
-
-        <!--Dayspedia.com widget<iframe width='202' height='122' style='padding:0!important;margin:0!important;border:none!important;background:none!important;background:transparent!important' marginheight='0' marginwidth='0' frameborder='0' scrolling='no' comment='/*defined*/' src='https://dayspedia.com/if/digit/?v=1&iframe=eyJ3LTEyIjp0cnVlLCJ3LTExIjp0cnVlLCJ3LTEzIjp0cnVlLCJ3LTE0IjpmYWxzZSwidy0xNSI6ZmFsc2UsInctMTEwIjpmYWxzZSwidy13aWR0aC0wIjp0cnVlLCJ3LXdpZHRoLTEiOmZhbHNlLCJ3LXdpZHRoLTIiOmZhbHNlLCJ3LTE2IjoiMTZweCAxNnB4IDI0cHgiLCJ3LTE5IjoiMzIiLCJ3LTE3IjoiMTIiLCJ3LTIxIjpmYWxzZSwiYmdpbWFnZSI6LTIsImJnaW1hZ2VTZXQiOmZhbHNlLCJ3LTIxYzAiOiIjZmZmZmZmIiwidy0wIjpmYWxzZSwidy0zIjpmYWxzZSwidy0zYzAiOiIjMzQzNDM0Iiwidy0zYjAiOiIxIiwidy02IjoiIzM0MzQzNCIsInctMjAiOmZhbHNlLCJ3LTQiOiIjMDA3ZGJmIiwidy0xOCI6ZmFsc2UsInctd2lkdGgtMmMtMCI6IjMwMCIsInctMTE1IjpmYWxzZX0=&lang=es&cityid=7423'></iframe>-->
-
     </div>
     <footer class="footer">
         <div class="social">
