@@ -73,11 +73,6 @@
                 Info: <input class="inputinfo" type="text" name="info" value="<?php echo $info; ?>">
 
 
-
-
-
-
-
                 <tbody>
 
                     <?php
@@ -116,6 +111,7 @@
 
                     <script>
                         window.onload = function() {
+                            var dataPoints = <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>;
 
                             var chart = new CanvasJS.Chart("chartContainer", {
                                 theme: "light2", // "light1", "light2", "dark1", "dark2"
@@ -124,13 +120,19 @@
                                 title: {
                                     text: "Temperature over time in °C."
                                 },
+                                axisX: {
+                                    title: "Time in milliseconds."
+                                },
+                                axisY: {
+                                    suffix: "°C"
+                                },
                                 data: [{
-                                    type: "area",
-                                    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                                    type: "line",
+                                    dataPoints: dataPoints
                                 }]
                             });
                             chart.render();
-
+                        
                         }
                     </script>
                     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
