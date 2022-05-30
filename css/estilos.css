@@ -23,7 +23,7 @@ h5,
 h6 {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   letter-spacing: 1.5;
-  margin: 0px;
+  margin: 10px;
 }
 
 .section__titulo {
@@ -413,10 +413,11 @@ h6 {
     outline: none;
     border: none;
     width: 100%;
-   
+
   }
+
   .inputinfo {
-  pointer-events: none;
+    pointer-events: none;
   }
 
 
@@ -557,6 +558,50 @@ h6 {
     background-position: center;
   }
 
+  .container-login1002 {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    align-items: center;
+    padding-top: 0px;
+    padding-right: 100px;
+    padding-bottom: 100px;
+    padding-left: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+  }
+
+  .container-login1005 {
+
+    width: 20%;
+    min-height: 50vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+    padding-top: 0px;
+    padding-right: 100px;
+    padding-bottom: 100px;
+    padding-left: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+
+  }
+
   .wrap-login100 {
     width: 390px;
     background: rgba(8, 6, 6, 0.749);
@@ -591,7 +636,7 @@ h6 {
     align-content: space-around;
 
 
-   
+
 
   }
 
@@ -612,12 +657,13 @@ h6 {
   }
 
   .wrap-login1002 {
-    width: 700px;
+    max-width: 50%;
     background: rgba(255, 255, 255, 0);
     border-radius: 10px;
     overflow: hidden;
     padding: 25px 20px 10px 30px;
     margin: 0px;
+
 
   }
 
@@ -641,6 +687,7 @@ h6 {
 
   .login100-form {
     width: 100%;
+
   }
 
   .login100-form-title {
@@ -849,4 +896,109 @@ h6 {
     margin: 10px;
     font-family: 'Oswald';
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.input{
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 25px;
+  overflow: hidden;
+  margin: 10px;
+  background-color: #ffffff;
+
+}
+
+
+
+
+.inputinfo{
+  margin: 2%;
+  background-color: #333;
+  font-style: Oswald;
+  color: #fff;
+  
+}
+
+#container {
+  display: grid;
+  width: 100%;
+  height: 85vh;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: 65% 0% 17.5% 17.5%;
+  /*4 columnas de 25 % cada una*/
+  grid-template-rows: 15% 30% 20%;
+  /*5 filas de 20% 30% 20% 20% 20%*/
+}
+
+.item {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+#item3 {
+  background-color: #343435;
+  grid-row: 1;
+  /* fila2 */
+  grid-column-start: 1;
+  /* coge de la columna 1 */
+  grid-column-end: 5;
+  /* hasta la columna 5 (la columna 5 no incluida) */
+  padding-right: 10%;
+  padding-left: 10%;
+
+}
+
+#item4 {
+
+  background-color: #ffffff;
+  grid-row-start: 2;
+  grid-row-end: 6;
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+}
+
+#item5 {
+  background-color: #ffffff;
+
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 3;
+  grid-column-end: 5;
+
+}
+
+#item6 {
+  background-color: #47BD99;
+  grid-row-start: 4;
+  grid-row-end: 6;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+#item7 {
+  background-color: #168f6b;
+  grid-row-start: 4;
+  grid-row-end: 6;
+  grid-column-start: 4;
+  grid-column-end: 6;
 }
