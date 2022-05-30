@@ -418,6 +418,8 @@ h6 {
 
   .inputinfo {
     pointer-events: none;
+    font-size: 15px;
+    font-family: Oswald;
   }
 
 
@@ -988,7 +990,7 @@ h6 {
 }
 
 #item6 {
-  background-color: #47BD99;
+  background-color: #444444;
   grid-row-start: 4;
   grid-row-end: 6;
   grid-column-start: 2;
@@ -996,7 +998,7 @@ h6 {
 }
 
 #item7 {
-  background-color: #168f6b;
+  background-color: #383838;
   grid-row-start: 4;
   grid-row-end: 6;
   grid-column-start: 4;
