@@ -132,11 +132,13 @@
             <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         </div>
         <div class="item" id="item6">
-            Filament Weight in Kg: <input class="inputinfo" type="text" name="info" value="<?php echo $info; ?>">
+        <h1> Filament Weight in Kg: </h1>
+            <input class="inputinfo" type="text" name="info" value="<?php echo $info; ?>">
            
         </div>
         <div class="item" id="item7">
-            Power state: <input class="inputinfo" type="text" name="info" value="<?php echo $info2; ?>">
+        <h1>Power state: </h1>
+            <input class="inputinfo" type="text" name="info" value="<?php echo $info2; ?>">
 
         </div>
     </div>
