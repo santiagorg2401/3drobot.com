@@ -17,7 +17,6 @@
 </head>
 
 <body>
-
     <?php include "login.php"; ?>
     <?php include "upload.php"; ?>
     <header class="header">
@@ -34,11 +33,21 @@
             </nav>
         </div>
     </header>
-    <div class="limiter">
 
-        <div class="container-login1004">
+    <div id="container">
+        <div class="item" id="item3">
+            <h1>Upload file: </h1>
 
-            <video id="video" width="854" height="480" controls></video>
+            <form method="post" enctype="multipart/form-data">
+                Select gcode file to upload:
+                <input type="file" name="fileToUpload" id="fileToUpload" value="Upload File">
+                <input type="submit" value="Upload File" name="submit">
+            </form>
+            Info: <input class="inputinfo" type="text" name="info" value="<?php echo $info; ?>">
+
+        </div>
+        <div class="item" id="item4">
+            <video id="video" width="800" height="450" controls></video>
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
             <script>
                 const video = document.getElementById('video');
@@ -59,93 +68,80 @@
                     });
                 }
             </script>
+        </div>
+        <?php
+        $url_rest = "http://20.40.65.188:3000/datos";
+
+        $curl = curl_init($url_rest);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $respuesta = curl_exec($curl);
+        if ($respuesta === false) {
+            curl_close($curl);
+            die("Error...");
+        }
+        curl_close($curl);
+        //echo $respuesta;
+        $resp = json_decode($respuesta);
+        $tam = count($resp);
+
+        $dataPoints = array();
+
+        for ($i = 0; $i < $tam; $i++) {
+            $j = $resp[$i];
+            $robot_id = $j->robot_id;
+            $temperature = $j->temperature;
+            $weight = $j->weight;
+            $timedate = $j->timedate;
+            $powerState = $j->powerState;
+
+            array_push($dataPoints, array("x" => $i, "y" => $temperature));
+            $info = $weight;
+            $info2 = $powerState;
+        }
+        ?>
+        <div class="item" id="item5">
+            <script>
+                window.onload = function() {
+                    var dataPoints = <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>;
+
+                    var chart = new CanvasJS.Chart("chartContainer", {
+                        theme: "light2", // "light1", "light2", "dark1", "dark2"
+                        animationEnabled: true,
+                        zoomEnabled: true,
+                        title: {
+                            text: "Temperature over time in °C."
+                        },
+                        axisX: {
+                            title: "Time in milliseconds."
+                        },
+                        axisY: {
+                            suffix: "°C"
+                        },
+                        data: [{
+                            type: "line",
+                            dataPoints: dataPoints
+                        }]
+                    });
+                    chart.render();
+
+                }
+            </script>
+            <div id="chartContainer" style="height: 250px; width: 100%;"></div>
 
 
-            <div class="wrap-login1004">
-
-                <h1>Upload file</h1>
-
-                <form method="post" enctype="multipart/form-data">
-                    Select gcode file to upload:
-                    <input type="file" name="fileToUpload" id="fileToUpload" value="Upload File">
-                    <input type="submit" value="Upload File" name="submit">
-                </form>
-                Info: <input class="inputinfo" type="text" name="info" value="<?php echo $info; ?>">
-
-
-                <tbody>
-
-                    <?php
-                    $url_rest = "http://20.40.65.188:3000/datos";
-
-                    $curl = curl_init($url_rest);
-                    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-                    $respuesta = curl_exec($curl);
-                    if ($respuesta === false) {
-                        curl_close($curl);
-                        die("Error...");
-                    }
-                    curl_close($curl);
-                    //echo $respuesta;
-                    $resp = json_decode($respuesta);
-                    $tam = count($resp);
-
-                    $dataPoints = array();
-
-                    for ($i = 0; $i < $tam; $i++) {
-                        $j = $resp[$i];
-                        $robot_id = $j->robot_id;
-                        $temperature = $j->temperature;
-                        $weight = $j->weight;
-                        $timedate = $j->timedate;
-                        $powerState = $j->powerState;
-
-                        array_push($dataPoints, array("x" => $i, "y" => $temperature));
-                        $info = $weight;
-                        $info2 = $powerState;
-                    }
-                    ?>
-                    Filament Weight in Kg: <input class="inputinfo" type="text" name="info" value="<?php echo $info; ?>">
-                    Power state: <input class="inputinfo" type="text" name="info" value="<?php echo $info2; ?>">
-
-
-                    <script>
-                        window.onload = function() {
-                            var dataPoints = <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>;
-
-                            var chart = new CanvasJS.Chart("chartContainer", {
-                                theme: "light2", // "light1", "light2", "dark1", "dark2"
-                                animationEnabled: true,
-                                zoomEnabled: true,
-                                title: {
-                                    text: "Temperature over time in °C."
-                                },
-                                axisX: {
-                                    title: "Time in milliseconds."
-                                },
-                                axisY: {
-                                    suffix: "°C"
-                                },
-                                data: [{
-                                    type: "line",
-                                    dataPoints: dataPoints
-                                }]
-                            });
-                            chart.render();
-                        
-                        }
-                    </script>
-                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-
-
-                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-                </tbody>
-
-
-            </div>
+            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        </div>
+        <div class="item" id="item6">
+            Filament Weight in Kg: <input class="inputinfo" type="text" name="info" value="<?php echo $info; ?>">
+           
+        </div>
+        <div class="item" id="item7">
+            Power state: <input class="inputinfo" type="text" name="info" value="<?php echo $info2; ?>">
 
         </div>
     </div>
+
+
     <footer class="footer">
         <div class="social">
             <a href="https://github.com/santiagorg2401/3drobot" target="_blank">
