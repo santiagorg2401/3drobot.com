@@ -70,7 +70,14 @@
             </script>
         </div>
         <?php
-        $url_rest = "http://20.40.65.188:3000/datos";
+
+        if ($us == "usuario1@3dbot.com") {
+            $url_rest = "http://20.40.65.188:3000/datos/1";
+        } else if ($us == "usuario2@3dbot.com") {
+            $url_rest = "http://20.40.65.188:3000/datos/2";
+        } else if ($us == "usuario3@3dbot.com") {
+            $url_rest = "http://20.40.65.188:3000/datos/3";
+        }
 
         $curl = curl_init($url_rest);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -132,12 +139,12 @@
             <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         </div>
         <div class="item" id="item6">
-        <h1> Filament Weight in Kg: </h1>
+            <h1> Filament Weight in Kg: </h1>
             <input class="inputinfo" type="text" name="info" value="<?php echo $info; ?>">
-           
+
         </div>
         <div class="item" id="item7">
-        <h1>Power state: </h1>
+            <h1>Power state: </h1>
             <input class="inputinfo" type="text" name="info" value="<?php echo $info2; ?>">
 
         </div>
